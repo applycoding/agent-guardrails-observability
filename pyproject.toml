@@ -1,0 +1,34 @@
+[project]
+name = "agent-guardrails-observability"
+version = "0.1.0"
+description = "Guarded, traced LangGraph agent over mock Jira and ServiceNow tools (demo)"
+requires-python = ">=3.10"
+dependencies = [
+  "langgraph>=0.2",
+  "pydantic>=2.6",
+  "opentelemetry-sdk>=1.25",
+  "opentelemetry-exporter-otlp-proto-http>=1.25",
+  "fastapi>=0.110",
+  "uvicorn>=0.29",
+  "httpx>=0.27",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.5"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["agentops"]
+
+[tool.ruff]
+line-length = 180
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+ignore = ["E702"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

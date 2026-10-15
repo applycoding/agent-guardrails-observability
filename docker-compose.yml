@@ -1,0 +1,17 @@
+# Agent API plus Jaeger as a local OTLP trace viewer (http://localhost:16686).
+# To use self hosted Langfuse instead, point OTEL_EXPORTER_OTLP_ENDPOINT at
+# http://<langfuse-host>/api/public/otel and set OTEL_EXPORTER_OTLP_HEADERS to its basic auth header.
+services:
+  agent:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger:4318
+    depends_on:
+      - jaeger
+  jaeger:
+    image: jaegertracing/all-in-one:1.57
+    ports:
+      - "16686:16686"
+      - "4318:4318"
