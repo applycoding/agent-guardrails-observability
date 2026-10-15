@@ -1,0 +1,11 @@
+{"id": "jira-create-basic", "turns": ["Create a ticket for VPN drops every hour"], "expected_tools": ["jira_create_issue"], "expected_in_answer": ["OPS-1", "VPN drops every hour"]}
+{"id": "jira-create-priority", "turns": ["Open an urgent bug for checkout button not clickable on Safari"], "expected_tools": ["jira_create_issue"], "expected_in_answer": ["High"]}
+{"id": "jira-memory-transition", "turns": ["Create a task for rotate staging TLS certs", "Move it to in progress"], "expected_tools": ["jira_create_issue", "jira_transition_issue"], "expected_in_answer": ["OPS-1 is now In Progress"]}
+{"id": "jira-invalid-transition", "turns": ["Create a ticket for clean up old dashboards", "Mark it as done"], "expected_tools": ["jira_create_issue", "jira_transition_issue"], "expected_in_answer": ["couldn't complete"]}
+{"id": "jira-search", "turns": ["Create a ticket for Kafka consumer lag on orders", "Find tickets about kafka"], "expected_tools": ["jira_create_issue", "jira_search_issues"], "expected_in_answer": ["OPS-1", "Kafka consumer lag"]}
+{"id": "snow-create-outage", "turns": ["Open an incident: payments API is down in eu-west-1"], "expected_tools": ["snow_create_incident"], "expected_in_answer": ["INC0010001", "urgency 1"]}
+{"id": "snow-memory-status", "turns": ["Log an incident for slow login on mobile", "What is the status of that incident?"], "expected_tools": ["snow_create_incident", "snow_get_incident"], "expected_in_answer": ["INC0010001 is New"]}
+{"id": "snow-resolve", "turns": ["Raise an incident for disk full on build agent 3", "Resolve INC0010001"], "expected_tools": ["snow_create_incident", "snow_update_incident"], "expected_in_answer": ["Resolved"]}
+{"id": "snow-unknown", "turns": ["Check status of INC0099999"], "expected_tools": ["snow_get_incident"], "expected_in_answer": ["couldn't complete", "not found"]}
+{"id": "pii-redacted-into-tool", "turns": ["Create a ticket for reset password for mary@contoso.ie phone +353 87 123 4567"], "expected_tools": ["jira_create_issue"], "expected_in_answer": ["[EMAIL]", "[PHONE]"], "forbidden_in_answer": ["mary@contoso.ie", "123 4567"]}
+{"id": "smalltalk", "turns": ["hello there"], "expected_tools": [], "expected_in_answer": ["Jira", "ServiceNow"]}
